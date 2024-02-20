@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block title %} Realisateurs{% endblock %}
+
+{% block content %}
+    <div id="selection">
+        {% for realisateur in realisateurs %}
+            <div id="act">
+                {{realisateur.FirstName}} &nbsp;
+                {{realisateur.LastName}} <br/>
+                <img src={{realisateur.Photo}}  width="250" ><br>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

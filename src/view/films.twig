@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block title %} Films {% endblock %}
+
+{% block content %}
+
+    <div id="selection">
+    {% for film in films %}
+        <div class="film">
+            {{film.Titre}} <br>
+            <a href ="film/{{film.id_film}}"><img src = "public/images/{{film.Affiche}}" alt ="Affiche du film" width="250"></a><br>
+            {{film.date_de_sortie}}<br>
+            <br>
+        </div
+
+    </div>
+
+{% endfor %}   
+
+{% endblock %}

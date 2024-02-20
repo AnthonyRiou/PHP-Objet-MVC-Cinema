@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block title %} Genres {% endblock %}
+
+{% block content %}
+
+    <div id="selection">
+        {% for genre in genres %}
+            <div id="act">
+                {{ genre.Nom_genre }}
+                <img src={{genre.photo}} width="250"><br>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+   

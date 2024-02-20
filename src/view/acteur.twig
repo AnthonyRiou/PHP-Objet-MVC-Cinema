@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block title %} Acteur {% endblock %}
+
+{% block content %}
+
+echo <pre>
+{# {{dump (movies)}} #}
+    <div id = "selection">
+        <div id="act">
+            {{acteur.FirstName }} &nbsp; {{acteur.LastName}} <br>
+            <br>
+            <img src = {{acteur.Photo}} alt = "Photo de l'acteur" width="250">
+        
+        {% for m in movies %}
+            {{ m.titre }}
+        {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

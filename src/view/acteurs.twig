@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block title %} Acteurs{% endblock %}
+
+{% block content %}
+    <div id="selection">
+        {% for acteur in acteurs %}
+            <div id="act">
+                {{acteur.FirstName}} &nbsp;
+                {{acteur.LastName}} <br/>
+                <a href = "acteur/{{acteur.Id_acteur}}"><img src={{acteur.Photo}} width="250"></a><br>
+                <br>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

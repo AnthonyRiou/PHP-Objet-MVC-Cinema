@@ -1,0 +1,39 @@
+{% extends 'base.twig' %}
+
+{% block title %} Ajouter film {% endblock %}
+
+{% block content %}
+
+
+    <div id="selection">
+<h2>Ajouter un film</h2>
+  <form method="post" action="addfilm">
+    <div>
+        <label for="titre">Nom du film</label>
+        <input type="text" placeholder="Titre du film" name="titre" required/><br>
+        <br>
+        <label for="date_de_sortie">Date de sortie</label>
+        <input type="date" placeholder="Date de sortie" name="date_de_sortie" required/><br>
+        <br>
+        <input type="text" placeholder="urlphoto" name="affiche"><br>
+        <label for="real">Sélectionner un réalisateur</label>
+        <select name="id_realisateur" id="idreals">
+            {% for real in reals %}
+            <option value="{{real.Id_realisateur}}"> {{real.FirstName}} &nbsp; {{real.LastName}} </option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="genre">Sélectionner un genre</label>
+        <select name="id_genre" id="idgenre">
+            {% for genre in genres %}
+            <option value="{{genre.Id_genre}}"> {{genre.Nom_genre}} </option>
+            {% endfor %}
+        </select>
+        </div>
+    <br>
+    <button type="submit">Ajouter le nouveau film</button>
+  </form>
+  </div>
+
+  {% endblock %}

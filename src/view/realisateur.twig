@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block title %} Realisateur {% endblock %}
+
+{% block content %}
+
+{# echo <pre>
+    {{dump (realisateur.photo)}} #}
+    <div id="act">
+        {{realisateur.FirstName}} &nbsp; {{realisateur.LastName}}<br>
+        <br>
+        <img src="../../public/images/{{realisateur.photo}}" alt = "photo du realisateur" width="250">
+    </div>
+    
+{% endblock %}

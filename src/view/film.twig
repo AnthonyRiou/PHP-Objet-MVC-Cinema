@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+
+{% block title %} Film {% endblock %}
+
+{% block content %}
+    {# echo <pre>
+    {{dump (film)}} #}
+    
+
+    <div id="selection">
+
+        <ul>
+            <div class="film">
+                <li><h1>{{film.Titre}}</h1></li> <br>
+                <br>
+                <img src={{film.affiche}} alt="affiche du film" width"250">
+                <br>
+                <li>Date de sortie : {{ film.date_de_sortie }}</li><br>
+                <br>
+                <li>Acteurs : </li>
+                {% for actor in film.actors %}
+                <li><a href = "../acteur/{{actor.Id_acteur}}">{{actor.FirstName}} &nbsp; {{actor.LastName}} </a></li>
+                {% endfor %}
+                <br>
+                <li>Realisateur : </li>
+                <li><a href = "../realisateur/{{film.director.id_realisateur}}">
+                {{film.director.FirstName}} &nbsp; {{film.director.LastName}}</a></li><br>  
+                <br>
+                <li>Genre du film : </li>
+                {{film.genre.Nom_genre}} <br>
+                <br>
+                <button><a href = "../modiffilm/{{film.Id_film}}">Modifier le film</a></button> <br>
+                <br>
+                <button><a href = "../ajouteacteur/{{film.Id_film}}">Ajouter un acteur</a></button>
+            </div>
+        </ul>
+    </div>
+
+    {% endblock %}
+        

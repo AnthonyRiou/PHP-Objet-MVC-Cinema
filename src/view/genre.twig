@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block title %} Genre {% endblock %}
+
+{% block content %}
+
+{# echo <pre>
+    {{dump (genre)}} #}
+    
+    <div id="selection">
+        <div id="act">
+            {{genre.Nom_genre}}
+            <br>
+            <img src = {{genre.Photo}} alt = "Photo du genre" width="250">
+        </div>
+    </div>
+
+{% endblock %}

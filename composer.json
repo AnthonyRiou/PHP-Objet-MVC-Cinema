@@ -1,0 +1,18 @@
+{
+    "name": "29010-75-14/cinema",
+    "description": "\"Framework maison\"",
+    "autoload": {
+        "psr-4": {
+            "cinema\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "\"Tony\""
+        }
+    ],
+    "require": {
+        "klein/klein": "^2.1",
+        "twig/twig": "^3.8"
+    }
+}
