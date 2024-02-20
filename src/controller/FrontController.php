@@ -38,8 +38,9 @@ class FrontController {
 }
     public function acteur($id) {
         $acteur = $this->actorService->getbyId($id);
-        $movies = $this->movieService->getMoviesByActor($id);
-        echo $this->twig->render('acteur.twig',["acteur"=>$acteur, "movies"=>$movies ]);
+     //   $movies = $this->movieService->getMoviesByActor($id);
+     //   echo $this->twig->render('acteur.twig',["acteur"=>$acteur, "movies"=>$movies ]);
+        echo $this->twig->render('acteur.twig',["acteur"=>$acteur]);
         // require ('./src/view/acteur.php');
         // echo '<pre>';
         // print_r($acteur);   

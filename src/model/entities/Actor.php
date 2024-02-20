@@ -8,6 +8,7 @@ class Actor
     private $nom;
     private $prenom;
     private $photo;
+    private $films; 
     
     
  
@@ -43,5 +44,12 @@ class Actor
     }
     public function getPhoto() {
         return $this->photo;
+    }
+    public function addMovie($movie) {
+        $this->films[] = $movie;
+        return $this;
+    }
+    public function getFilms() {
+        return $this->films;
     }
 }
