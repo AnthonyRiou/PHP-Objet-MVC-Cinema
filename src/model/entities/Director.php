@@ -7,7 +7,7 @@ class Director {
     private $nom;
     private $prenom;
     private $photo;
-    
+    private $films; 
     
     public function setId_realisateur(int $id_realisateur=null) {
         $this->id_realisateur = $id_realisateur;
@@ -44,5 +44,12 @@ class Director {
         return $this->photo;
     }
    
+    public function addMovie($movie) {
+        $this->films[] = $movie;
+        return $this;
+    }
+    public function getFilms() {
+        return $this->films;
+    }
 }
     

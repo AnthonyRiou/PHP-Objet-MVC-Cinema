@@ -35,6 +35,43 @@ class MovieDao extends BaseDao {
             throw new \PDOException($stmt->errorInfo()[2]);
         }
     }
+
+    
+    public function getMoviesByRealisateur($idreal) {
+        $stmt = $this->db->prepare("SELECT *  FROM film WHERE id_realisateur  = :idreal ");
+        $res = $stmt->execute([":idreal" => $idreal ]);
+
+        if ($res) {
+            $movies = [];
+            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                $movies[] = $this->createObjectFromFields($row);
+            }
+            return $movies;
+            
+        } else {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+
+        return $movies;
+    }
+
+    public function getMoviesByGenre($idgenre) {
+        $stmt = $this->db->prepare("SELECT *  FROM film WHERE id_genre  = :idgenre ");
+        $res = $stmt->execute([":idgenre" => $idgenre ]);
+
+        if ($res) {
+            $movies = [];
+            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                $movies[] = $this->createObjectFromFields($row);
+            }
+            return $movies;
+            
+        } else {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+
+        return $movies;
+    }
     
     public function createObjectFromFields($fields) {
     $movie = new Movie();

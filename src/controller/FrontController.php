@@ -145,7 +145,10 @@ class FrontController {
 
     public function ajouteacteur($id) {
         $film = $this->movieService->getbyId($id);
+        // echo '<pre>';
+        // print_r($film);die;
         $acteurs = $this->actorService->getAllActors();
-        require ('./src/view/add_acteur.php');
+        echo $this->twig->render('add_acteur.twig',["film"=>$film, "acteurs"=>$acteurs]);
+        // require ('./src/view/add_acteur.php');
     }
 }

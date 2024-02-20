@@ -8,7 +8,7 @@
         {% for genre in genres %}
             <div id="act">
                 {{ genre.Nom_genre }}
-                <img src={{genre.photo}} width="250"><br>
+                <a href = "genre/{{genre.Id_genre}}"><img src={{genre.photo}} width="250"></a><br>
             </div>
         {% endfor %}
     </div>

@@ -7,11 +7,17 @@
 {# echo <pre>
     {{dump (genre)}} #}
     
-    <div id="selection">
-        <div id="act">
-            {{genre.Nom_genre}}
+   <div id = "selection">
+
+        <ul>
+        <div class="film">
+            <li>{{genre.Nom_genre}}</li>
             <br>
             <img src = {{genre.Photo}} alt = "Photo du genre" width="250">
+            <li>Les films de {{genre.Nom_genre}}: </li>
+            {% for m in genre.films %}
+            {{ m.titre }}<br>
+            {% endfor %}
         </div>
     </div>
 

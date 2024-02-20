@@ -93,31 +93,36 @@ $route->respond('GET','/ajouteacteur/[:id]', function($request,$response) use($f
 // Vers BackController
 
 
-$route->respond('POST','/addacteur', function($request,$post) use($bc) {
+$route->respond('POST','/addacteur', function($request,$response) use($bc) {
    $bc->addacteur($request->paramsPost()); // ajout d'un acteur
+   $response->redirect(".$base./cinema/films")->send();
    // $reponse->send('ok'); 
 });
 
 
-$route->respond('POST','/addgenre', function($request,$post) use($bc){
+$route->respond('POST','/addgenre', function($request,$reponse) use($bc){
    $bc->addgenre($request->paramsPost()); // ajout d'un genre
+   $response->redirect(".$base./cinema/films")->send();
    // $reponse->send('ok');
 });
 
-$route->respond('POST','/addrealisateur', function($request,$post) use($bc){
+$route->respond('POST','/addrealisateur', function($request,$response) use($bc){
    $bc->addrealisateur($request->paramsPost()); // ajout d'un realisateur
+   $response->redirect(".$base./cinema/films")->send(); 
    // $reponse->send('ok');
 });
-$route->respond('POST','/addfilm', function($request,$post) use($bc){
+$route->respond('POST','/addfilm', function($request,$response) use($bc){
    $bc->addfilm($request->paramsPost()); // ajout d'un film
+   $response->redirect(".$base./cinema/films")->send();
    // $reponse->send('ok');
 });
 $route->respond('POST','/modif_film/[:id]', function($request,$response) use($bc){
    $bc->modif_film($request->id, $request->paramsPost() ); // modification d'un film
-   $response->redirect("../films")->send();  
+   $response->redirect(".$base./cinema/films")->send(); 
 });
 $route->respond('POST','/addacteur_film', function($request,$response) use($bc){
    $bc->addacteur_film ($request->paramsPost()); // ajout d'un acteur
+   $response->redirect(".$base./cinema/films")->send(); 
    // $response->send('ok');
 });
 

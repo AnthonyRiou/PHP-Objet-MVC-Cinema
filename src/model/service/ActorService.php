@@ -3,7 +3,6 @@
 namespace cinema\model\service;
 
 use cinema\model\dao\ActorDao;
-
 use cinema\model\dao\MovieDao;
 
 class ActorService {
@@ -26,7 +25,7 @@ class ActorService {
     public function getbyId($id) {
         $acteur = $this->actorDao->findById($id);
         $movies = $this->movieDao->getMoviesByActor($id);
-       foreach ($movies as $movie) {
+        foreach ($movies as $movie) {
                 $acteur->addMovie($movie);
         }
         return $acteur;

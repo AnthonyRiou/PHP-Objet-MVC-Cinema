@@ -5,7 +5,7 @@
 {% block content %}
     {# echo <pre>
     {{dump (film)}} #}
-    
+
 
     <div id="selection">
 
@@ -13,7 +13,7 @@
             <div class="film">
                 <li><h1>{{film.Titre}}</h1></li> <br>
                 <br>
-                <img src={{film.affiche}} alt="affiche du film" width"250">
+                <img src="../public/images/{{film.Affiche}}" alt="affiche du film" width="350">
                 <br>
                 <li>Date de sortie : {{ film.date_de_sortie }}</li><br>
                 <br>

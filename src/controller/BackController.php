@@ -8,12 +8,14 @@ use cinema\model\service\GenreService;
 use cinema\model\service\MovieService;
 
 
+
 class BackController {
 
     private $actorService;
     private $directorService;
     private $genreService;
     private $movieService;
+    
 
 
 
@@ -22,10 +24,12 @@ class BackController {
         $this->directorService = new DirectorService();
         $this->genreService = new GenreService();
         $this->movieService = new MovieService();
+        
     }
 
     public function addacteur($acteurData) {
         $this->actorService->create($acteurData);
+      
     }
     
     public function addgenre($genreData) {

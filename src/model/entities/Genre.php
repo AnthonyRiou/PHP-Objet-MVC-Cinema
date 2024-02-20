@@ -6,6 +6,7 @@ class Genre {
     private $id_genre;
     private $nom_genre;
     private $photo;
+    private $films; 
 
     public function setId_genre(int $id_genre=null) {
         $this->id_genre = $id_genre;
@@ -31,5 +32,13 @@ class Genre {
     }
     public function getPhoto() {
         return $this->photo;
+    }
+
+    public function addMovie($movie) {
+        $this->films[] = $movie;
+        return $this;
+    }
+    public function getFilms() {
+        return $this->films;
     }
 }

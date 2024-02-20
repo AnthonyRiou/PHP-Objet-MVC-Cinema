@@ -8,13 +8,13 @@
     <div id="selection">
 <h2>Modifier le film </h2>
 
-<h1><?= $film->getTitre() ?> </h1>
+<h1>{{film.titre}} </h1>
 
-  <form method="post" action="../modif_film/<?= $film->getId_film() ?>">
+  <form method="post" action="../modif_film/{{film.Id_film}}">
     <div>
         <br>
         <label for="titre">Nouveau nom du film : </label>
-        <input type="text" name="titre" value="<?=$film->getTitre() ?>"><br>
+        <input type="text" name="titre" value="{{film.Titre}}"><br>
         <br>
         <label for="date_de_sortie">Date de sortie : </label>
         <input type="date" placeholder="Date de sortie" name="date_de_sortie" required/><br>
@@ -24,21 +24,20 @@
         <br>
         <label for="real">Sélectionner un réalisateur : </label>
         <select name="id_realisateur" id="idreals">
-             {foreach ($reals as $real) {?>
-            <option value="<?= $real->getId_realisateur() ?>"> <?=$real->getFirstName() ?> <?= $real->getLastName() ?></option>
-            <?php }?>
+             {% for real in reals %}
+            <option value="{{real.Id_realisateur}}"> {{real.FirstName}} &nbsp; {{real.LastName}}</option>
+            {% endfor %}
         </select>
         <br>
         <br>
         <label for="genre">Sélectionner un genre : </label>
         
         <select name="id_genre" id="idgenre">
-
-            <?php foreach ($genres as $genre) {?>
-            <option value="<?= $genre->getId_genre() ?>"> <?=$genre->getNom_genre() ?> </option>
-            <?php }?>
+               {% for genre in genres %}
+            <option value="{{genre.Id_genre}}">{{genre.Nom_genre}}</option>
+            {% endfor %}
         </select>
-        <input type="hidden" name="id_film" value="<?= $film->getId_film() ?>">
+        <input type="hidden" name="id_film" value="{{film.id_film}}">
         </div>
     <br>
     <button type="submit ">Modifier le film</button>

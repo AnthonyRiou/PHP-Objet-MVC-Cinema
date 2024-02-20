@@ -7,14 +7,18 @@
 echo <pre>
 {# {{dump (movies)}} #}
     <div id = "selection">
-        <div id="act">
-            {{acteur.FirstName }} &nbsp; {{acteur.LastName}} <br>
+
+        <ul>
+        <div class="film">
+            <li>{{acteur.FirstName }} &nbsp; {{acteur.LastName}} </li><br>
             <br>
-            <img src = {{acteur.Photo}} alt = "Photo de l'acteur" width="250">
-        
-        {% for m in acteur.films %}
+            <img src = "../public/images/{{acteur.Photo}}" alt = "Photo de l'acteur" width="250">
+            <br>
+            <li>Ses films : </li>
+            <br>
+            {% for m in acteur.films %}
             {{ m.titre }}
-        {% endfor %}
+            {% endfor %}
         </div>
 
     </div>

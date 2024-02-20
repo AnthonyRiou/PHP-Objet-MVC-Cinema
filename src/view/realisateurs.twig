@@ -8,7 +8,7 @@
             <div id="act">
                 {{realisateur.FirstName}} &nbsp;
                 {{realisateur.LastName}} <br/>
-                <img src={{realisateur.Photo}}  width="250" ><br>
+                <a href = "realisateur/{{realisateur.Id_realisateur}}"><img src="public/images/{{realisateur.Photo}}"  width="250" ></a><br>
             </div>
         {% endfor %}
     </div>

@@ -6,10 +6,19 @@
 
 {# echo <pre>
     {{dump (realisateur.photo)}} #}
-    <div id="act">
-        {{realisateur.FirstName}} &nbsp; {{realisateur.LastName}}<br>
+    <div id = "selection">
+
+        <ul>
+        <div class="film">
+        <li>{{realisateur.FirstName}} &nbsp; {{realisateur.LastName}}</li><br>
         <br>
-        <img src="../../public/images/{{realisateur.photo}}" alt = "photo du realisateur" width="250">
+        <img src="../public/images/{{realisateur.photo}}" alt = "photo du realisateur" width="250">
+        <br>
+         <li>Ses films : </li>
+         <br>
+            {% for m in realisateur.films %}
+            {{ m.titre }}<br>
+            {% endfor %}
     </div>
     
 {% endblock %}
