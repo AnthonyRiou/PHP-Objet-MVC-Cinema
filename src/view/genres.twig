@@ -6,9 +6,8 @@
 
     <div id="selection">
         {% for genre in genres %}
-            <div id="act">
-                {{ genre.Nom_genre }}
-                <a href = "genre/{{genre.Id_genre}}"><img src={{genre.photo}} width="250"></a><br>
+            <div id="act">                
+                <a href = "genre/{{genre.Id_genre}}"><img src="public/images/{{genre.photo}}" width="250"></a><br>            
             </div>
         {% endfor %}
     </div>

@@ -3,22 +3,25 @@
 {% block title %} Genre {% endblock %}
 
 {% block content %}
-
-{# echo <pre>
+{# 
+echo <pre>
     {{dump (genre)}} #}
     
    <div id = "selection">
 
         <ul>
         <div class="film">
-            <li>{{genre.Nom_genre}}</li>
+            
             <br>
-            <img src = {{genre.Photo}} alt = "Photo du genre" width="250">
-            <li>Les films de {{genre.Nom_genre}}: </li>
+            <img src = "../public/images/{{genre.photo}}" alt = "Photo du genre" width="250">
+            <br>
+            <div class="film2">
             {% for m in genre.films %}
-            {{ m.titre }}<br>
+            <li>{{m.Titre}}</li>
+            <img src = "../public/images/{{ m.affiche }}" alt = "Photo du genre" width="250">
+            <br>
             {% endfor %}
+            </div>
         </div>
-    </div>
 
 {% endblock %}

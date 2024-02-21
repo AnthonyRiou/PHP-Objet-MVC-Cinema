@@ -71,6 +71,17 @@ a.navbar-brand {   color:white !important;
   
 }
 
+.film2 { 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction : column;
+    justify-content : space-around;
+    /* align-items: center; */
+    list-style-type : none;
+    /* padding-left: 5%; */
+    margin-top: 3%;
+}
+
 .film li {
     text-align: center;
 }

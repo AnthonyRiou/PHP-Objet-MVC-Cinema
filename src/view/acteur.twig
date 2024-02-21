@@ -4,7 +4,7 @@
 
 {% block content %}
 
-echo <pre>
+{# echo <pre> #}
 {# {{dump (movies)}} #}
     <div id = "selection">
 
@@ -15,9 +15,8 @@ echo <pre>
             <img src = "../public/images/{{acteur.Photo}}" alt = "Photo de l'acteur" width="250">
             <br>
             <li>Ses films : </li>
-            <br>
             {% for m in acteur.films %}
-            {{ m.titre }}
+            {{ m.titre }}<br>
             {% endfor %}
         </div>
 
