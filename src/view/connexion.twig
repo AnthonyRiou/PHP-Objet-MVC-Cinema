@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block title %} Inscription {% endblock %}
+
+{% block content %}
+
+<div id = "selection">
+{% if message %} 
+     <div class="alert alert-success">{{ message }}</div>
+{% endif %}
+
+    <ul>
+    <div class="film">
+        <form action="connexion" method="POST">
+            <div class="act">
+            <h1>Connectez-vous</h1>
+            <li><label for="email">Votre email<label></li>
+            <li><input type="text" name="email"  placeholder="Votre email"></li>
+            <li><label for="password">Votre mot de passe<label></li>
+            <li><input type="text" name="password"  placeholder="Votre mdp"></li><br>
+            <li><button class="bouton2">Valider</button></li>
+             </div>
+        </form>
+    </div>
+    </ul>
+</div>
+
+{% endblock %}

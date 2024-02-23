@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block title %} Votre profil {% endblock %}
+
+{% block content %}
+
+<div id="selection">
+
+    <h1>Votre profil</h1>
+
+        <div class="film">
+            <h2>Nom : {{session.user.nom}}</h2> <br>
+            <h2>Prénom : {{session.user.prenom}}</h2> <br>
+            <h2>Email : {{session.user.email}}</h2> <br>
+            <div class="favoris">
+            <h2>Cliquez<span><a href=""> ICI </a><span><br> pour voir la liste <br>de vos films préférés</a></h2>
+            </div>
+          
+        </div
+
+    </div>
+
+{% endblock %}

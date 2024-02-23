@@ -41,7 +41,7 @@
         <input type="hidden" name="id_film" value="<?= $film->getId_film() ?>">
         </div>
     <br>
-    <button type="submit ">Modifier le film</button>
+    <button  class="bouton">Modifier le film</button>
   </form>
   </div>
 

@@ -3,9 +3,6 @@
 {% block title %} Film {% endblock %}
 
 {% block content %}
-    {# echo <pre>
-    {{dump (film)}} #}
-
 
     <div id="selection">
 
@@ -15,7 +12,7 @@
                 <br>
                 <img src="../public/images/{{film.Affiche}}" alt="affiche du film" width="350">
                 <br>
-                <li>Date de sortie : {{ film.date_de_sortie }}</li><br>
+                <li>Date de sortie : {{ film.date_de_sortie|date("m/d/Y") }}</li><br>
                 <br>
                 <li>Acteurs : </li>
                 {% for actor in film.actors %}
@@ -29,9 +26,35 @@
                 <li>Genre du film : </li>
                 {{film.genre.Nom_genre}} <br>
                 <br>
-                <button><a href = "../modiffilm/{{film.Id_film}}">Modifier le film</a></button> <br>
+                {% if session.user.role == 'admin' %}
+                <button  class="bouton2"><a href = "../modiffilm/{{film.Id_film}}">Modifier le film</a></button> 
+                {% endif %}
                 <br>
-                <button><a href = "../ajouteacteur/{{film.Id_film}}">Ajouter un acteur</a></button>
+                {% if session.user.role == 'admin' %}
+                <button  class="bouton2"><a href = "../ajouteacteur/{{film.Id_film}}">Ajouter un acteur</a></button>
+                {% endif %}
+                {% if session.user.role == 'user' %}
+                <li>Donnez une note à votre film : </li>
+                <form action="" method="post">
+                <select name="note" id="note">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+                <label name="note"> sur 5</label>
+                </form>
+                <br>
+                <li>Vous pouvez laisser un commentaire sur ce film : </li>
+                <br>
+                <form action="" method="post">
+                <textarea name="commentaire" id="commentaire" cols="30" rows="5"></textarea>
+                <br>
+                <button  class="bouton2">Ajouter le commentaire</button>
+                </form>
+            
+                 {% endif %}
             </div>
         </ul>
     </div>

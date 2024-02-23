@@ -8,6 +8,7 @@
     <ul>
     <div class="film">
         <li><?= $acteur->getFirstName() ." ". $acteur->getLastName() ?></li>
+        <br>
         <img src = "../public/images/<?= $acteur->getPhoto() ?>" width="250">
     </div>
     </ul>

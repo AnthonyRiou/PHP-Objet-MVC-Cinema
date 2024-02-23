@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 require_once "vendor/autoload.php";
 
 use cinema\controller\FrontController; 
@@ -14,6 +16,9 @@ $loader = new FilesystemLoader(__DIR__ . '/src/view');
 $twig = new Environment($loader, ['cache' => false, 'debug' => true]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+$twig->addGlobal('session', $_SESSION);
+
+
 $fc = new FrontController($twig); 
 $bc = new BackController(); 
 
@@ -27,6 +32,24 @@ if(ltrim($base, '/')){
 
 
 $route = new \Klein\Klein();
+
+$route->respond('GET', '/inscription', function() use ($fc) {
+    $fc->inscription();
+});
+
+$route->respond('GET', '/connexion', function($request,$response) use ($fc) {
+   $fc->connexion();
+   
+});
+
+$route->respond('GET', '/deconnexion', function($request,$response) use ($fc) {
+   $fc->deconnexion();
+    $response->redirect(".$base./cinema/films")->send();
+});
+
+$route->respond('GET', '/profil', function() use ($fc) {
+   $fc->profil();
+});
 
 $route->respond('GET', '/', function() use ($fc) {
    $fc->films();
@@ -92,6 +115,25 @@ $route->respond('GET','/ajouteacteur/[:id]', function($request,$response) use($f
 
 // Vers BackController
 
+$route->respond('POST','/inscription', function($request, $response) use ($bc) {
+    $bc->inscription($request->paramsPost());
+    $response->redirect(".$base./cinema/films")->send();
+   });
+
+$route->respond('POST', '/connexion', function ($request, $response) use ($bc) {
+    $post = $request->paramsPost();
+    if($bc->connexion($post)) {
+      $response->redirect('films');
+ } else { ?>
+      <script>
+      alert('Identifiant ou mot de passe incorrect');
+      window.location.href ="http://localhost/cinema/connexion"; 
+      </script>
+      <?php
+            //$response->redirect(".$base./cinema/connexion")->send();
+    }
+});
+
 
 $route->respond('POST','/addacteur', function($request,$response) use($bc) {
    $bc->addacteur($request->paramsPost()); // ajout d'un acteur
@@ -125,6 +167,7 @@ $route->respond('POST','/addacteur_film', function($request,$response) use($bc){
    $response->redirect(".$base./cinema/films")->send(); 
    // $response->send('ok');
 });
+
 
 $route->dispatch();
 

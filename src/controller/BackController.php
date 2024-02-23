@@ -6,6 +6,7 @@ use cinema\model\service\ActorService;
 use cinema\model\service\DirectorService;
 use cinema\model\service\GenreService;
 use cinema\model\service\MovieService;
+use cinema\model\service\UserService;
 
 
 
@@ -15,6 +16,7 @@ class BackController {
     private $directorService;
     private $genreService;
     private $movieService;
+    private $userService;
     
 
 
@@ -24,7 +26,16 @@ class BackController {
         $this->directorService = new DirectorService();
         $this->genreService = new GenreService();
         $this->movieService = new MovieService();
+        $this->userService = new UserService();
         
+    }
+
+    public function inscription($userData) {
+        $this->userService->create($userData);
+    }
+
+    public function connexion($userData) {
+       return ($this->userService->login($userData));
     }
 
     public function addacteur($acteurData) {

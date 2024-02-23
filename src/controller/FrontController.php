@@ -6,6 +6,7 @@ use cinema\model\service\ActorService;
 use cinema\model\service\DirectorService;
 use cinema\model\service\GenreService;
 use cinema\model\service\MovieService;
+use cinema\model\service\UserService;
 
 use Twig\Environment;
 
@@ -15,6 +16,7 @@ class FrontController {
     private $directorService;
     private $genreService;
     private $movieService;
+    private $userService;
     private $twig;
 
 
@@ -24,7 +26,28 @@ class FrontController {
         $this->directorService = new DirectorService();
         $this->genreService = new GenreService();
         $this->movieService = new MovieService();
+        $this->userService = new UserService();
         $this->twig = $twig;
+    }
+
+    public function inscription(){
+        echo $this->twig->render('inscription.twig');
+        // require ('./src/view/inscription.php');
+    }
+
+    public function connexion() {
+        $message="";
+        echo $this->twig->render('connexion.twig',["message"=> $message]);
+        // require ('./src/view/inscription.php');
+    }
+    public function deconnexion(){
+        $deconnect = $this->userService->deconnexion();
+        // echo $this->twig->render('films.twig');
+        // require ('./src/view/inscription.php');
+    }
+
+    public function profil() {
+        echo $this->twig->render('profil.twig');
     }
 
     public function acteurs() {

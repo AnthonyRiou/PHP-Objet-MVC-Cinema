@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block title %} Inscription {% endblock %}
+
+{% block content %}
+
+<div id = "selection">
+    <ul>
+    <div class="film">
+        <form action="inscription" method="POST">
+            <div class="act">
+            <h1>Inscrivez-vous</h1>
+            
+            <li><label for="name">Votre nom<label></li>
+            <li><input type="text" name="nom"  placeholder="Votre nom"></li>
+            <li> <label for="prenom">Votre prenom<label></li>
+            <li><input type="text" name="prenom"  placeholder="Votre prenom"></li>
+            <li><label for="email">Votre email<label></li>
+            <li><input type="text" name="email"  placeholder="Votre email"></li>
+            <li><label for="password">Votre mot de passe<label></li>
+            <li><input type="text" name="password" placeholder="Votre mot de passe"></li><br>
+            <li><input type="hidden" name="role" value="user"></li>
+            <li><button  class="bouton2">Valider</button></li>
+             </div>
+        </form>
+    </div>
+    </ul>
+</div>
+
+{% endblock %}
